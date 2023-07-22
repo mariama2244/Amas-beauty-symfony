@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin  | Ama's Beauty{% endblock %}
+
+{% block body %}
+
+<h1 class="text-center my-4 p-5">Show Archiver</h1>
+
+	
+			
+
+				<table class="table">
+					<thead>
+						<tr class="text-center">
+
+							<th>#</th>
+							<th>Titre</th>
+							<th>Description</th>
+							<th>Collection</th>
+							<th>Photo</th>
+							<th>Prix</th>
+							<th>Stock</th>
+							<th>Crée le</th>
+							<th>Modifié le</th>
+							<th>Action</th>
+
+						</tr>
+					</thead>
+
+                    <br>
+
+					<tbody>
+						{% for product in products %}
+
+							<tr class="text-center align-middle">
+								<td>{{ product.id }}</td>
+								<td>{{ product.title | capitalize }}</td>
+								<td>{{ product.descript | length > 25 ? product.descript | slice(0, 25) ~ '...' : product.descript }}</td>
+								<td>{{ product.collection | capitalize }}</td>
+								<td><img src="{{ asset('uploads/' ~ product.photo ) }}" alt="{{ product.title}}" width="150" height="150" class="img-custom"></td>
+								<td>{{ product.price }} €</td>
+								<td>{{ product.stock }}</td>
+								<td>{{ product.createdAt | date('d/m/Y') }}</td>
+								<td>{{ product.updatedAt  | date('d/m/Y')  }}</td>
+								<td>
+									<a href="{{ path('restore_archiver', {'id': product.id}) }}" class="btn btn-info" title="Modifier le produit"><i class="bi bi-pencil-square"></i></a>
+									<a href="{{ path('soft_delete_product', {'id': product.id}) }}" class="btn btn-info" title="Archiver le produit" onclick="return confirm('Cette action archivera le produit. Voulez-vous continuer ?')"><i class="bi bi-trash3"></i></a>
+								</td>
+							</tr>
+
+                            <br>
+
+						{% endfor %} 
+					</tbody>
+				</table>
+
+			
+			
+
+		
+
+{% endblock %}

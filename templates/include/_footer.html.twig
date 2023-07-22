@@ -1,0 +1,54 @@
+<footer class="footer bg-pink" >
+
+    <!-- ////////////////////////////////// FIRST PART //////////////////////////////////// -->
+    <div class="container border-top ">
+        <div class="row mt-3 text-center">
+            <div class="col-4 col-md">
+                <h5 class="text-dark">About Ama'sBeauty</h5>
+                <ul class="list-unstyled">
+                    <li><a href="{{ path("show_home") }}" class="text-dark">Home</a></li>
+                    <li><a href="{{ path("show_aboutus") }}" class="text-dark">About Us</a></li>
+                    <li><a href="{ path('contact') }}" class="text-dark">Contact</a></li>
+                    <li><a href="{{ path('register') }}" class="text-dark">Registeration</a></li>
+                    <li><a href="{{ path('app_login') }}" class="text-dark">Connection</a></li>
+                </ul>
+            </div>
+            <div class="col-4 col-md">
+                <h5 class="text-dark">Help and Support</h5>
+                <ul class="list-unstyled">
+                    <li><a href="{{ path('show_condition')}}" class="text-dark">Conditions General</a></li>
+                    <li><a href="{{ path('show_politique')}}" class="text-dark">Politique de confidentialité</a></li>
+                    <li><a href="{{ path('show_return')}}" class="text-dark">Return Policy</a></li>
+                    <li><a href="#" class="text-dark">Track Your Order</a></li>
+                </ul>
+            </div>
+             <div class="col-md-5 col-lg-4">
+                    <div class="text-center text-md-right">
+                        <ul class="list-unstyled list-inline">
+                            <li class="list-inline-item">
+                                <a href="https://www.facebook.com/amasbeaut" class="btn-sm text-white" style="font-size: 23px;"><i
+                                        class="bi bi-facebook"></i></a>
+                                <a href="https://instagram.com/amas.beauty?igshid=NTc4MTIwNjQ2YQ==" class="btn-sm text-white"
+                                    style="font-size: 23px;"><i class="bi bi-instagram icon"></i></a>
+                                <a href="https://www.youtube.com/channel/UCVtQLrSv63dLZkxDT21iFDQ" class="btn-sm text-white" style="font-size: 23px;"><i
+                                        class="bi bi-youtube"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            <div class="col-12 col-md">
+                <h5 class="text-dark">Ama's Beauty</h5>
+            </div>
+        </div>
+    </div>
+
+    <!-- ////////////////////////////////// SECOND PART //////////////////////////////////// -->
+    <div class="container-fluid bg-white mt-5">
+        <p class="text-center text-dark p-2 m-0">
+            &copy; Protel {{ "now"|date('Y') }} - Made with ❤️ by
+            <a href="https://github.com/BesokDev"
+                class="text-reset"
+                >Ama's Beauty</a>
+        </p>
+    </div>
+</footer>

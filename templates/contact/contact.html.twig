@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact us{% endblock %}
+
+{% block body %}
+
+   <h1 class="text-center my-4 p-5">Contact</h1>
+
+   {# ################# FLASHES ################# #}
+    <div class="row">
+        <div class="col-6 mx-auto">
+            {% include 'include/_flashes.html.twig' %}
+        </div>
+    </div>
+   {# ################# FLASHES ################# #}
+
+   <div class="row">
+       <div class="col-6 mx-auto">
+           {{ form(form) }}
+         
+      </div>
+   </div>
+
+ 
+
+{% endblock %}

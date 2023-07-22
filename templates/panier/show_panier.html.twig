@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Basket
+{% endblock %}
+
+{% block body %}
+
+	<h1 class="text-center my-3 p-5">My Basket</h1>
+
+	{% include 'include/_flashes.html.twig' %}
+
+	<div class="row my-3">
+		<div class="col-10 mx-auto mb-5">
+
+			<table class="table table-hover">
+				<thead>
+					  <tr class="text-center align-middle">
+                        <th scope="col">#</th>
+                        <th scope="col">Produits</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Prix unité</th>
+                        <th scope="col">Quantité</th>
+                        <th scope="col">Sous-Total</th>
+                        <th scope="col">Action</th>
+                    </tr>
+				</thead>
+				<tbody>
+
+					{% for item in app.session.get('panier') %}
+
+							<tr class="text-center align-middle">
+
+							    <th scope="row">{{ item['product'].id }}</th>
+							    <td>{{ item['product'].title }}</td>
+							    <td>{{ item['product'].descript }}</td>
+							    <td>{{ item['product'].price }}€</td>
+							    <td>
+								    <a href="" class="btn-lg" title="Diminuer">
+									    <i class="bi bi-dash-circle"></i>
+								    </a>
+								    {{ item['quantity'] }}
+								    <a href="" class="btn-lg" title="Augmenter">
+									    <i class="bi bi-plus-circle"></i>
+								    </a>
+							    </td>
+							    <td>{{ item['product'].price * item['quantity'] }}€</td>
+							    <td>
+								    <a href="{{ path('delete_item', {'id': item['product'].id}) }}" class="btn btn-sm btn-danger" title="Supprimer le produit" onclick="return confirm('Cette action archivera le produit. Voulez-vous continuer ?')">
+									    <i class="bi bi-x-square"></i>
+								    </a>
+							    </td>
+						 </tr>
+
+					{% else %}
+
+						<tr>
+							<td colspan="6" class="text-center bg-light">Your Basket is empty</td>
+						</tr>
+
+					{% endfor %}
+
+
+				</tbody>
+				<tfoot>
+					<tr>
+						<td colspan="4" class="align-middle text-center">Total price:
+						</td>
+						<td class="align-middle text-center">
+							{{ total }}€</td>
+						<td></td>
+					</tr>
+				</tfoot>
+			</table>
+
+            <div class="row ms-auto">
+				<div class="col-3"></div>
+				    <a href="{{ path('delete_panier') }}" class="btn btn-primary col-2 text-center">Empty basket</a>
+				<div class="col-2"></div>
+				    <a href="{{ path('validate_commande')}}" class="btn btn-primary col-2 text-center">Validate my basket</a>
+				<div class="col-3"></div>
+			</div>
+
+		</div>
+	</div>
+
+{% endblock %}

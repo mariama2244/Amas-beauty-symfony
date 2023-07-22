@@ -1,0 +1,106 @@
+*, :before, :after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+  
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex-grow: 1;
+}
+#carte {
+    width: 100%;
+    height: 300px;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+.carousel-item img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+.bg-pink{
+    background-color: #FDCEDF;
+  
+}
+.footer ul li a{
+    text-decoration: none;
+    text-decoration-line: none;
+    
+}
+.panier a{
+    text-decoration: none;
+    text-decoration-line: none;
+    color: black;
+
+}
+      /* For invissible clip wig*/
+.img-hover{
+    transition: .10s
+}
+.img-hover:hover{
+    box-shadow: 10px 5px 5px #489FB5;
+    border-radius: 20px;
+}
+.column{
+    border-radius: 40px;
+}
+.column{
+    float: left;
+    width: 33.3%;
+    padding: 70px;
+    
+}
+.row::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+ /* end invissible clip wig*/
+
+.bg-light-blue{
+    background-color: #489FB5;
+}
+.second_section{
+    display: flex;
+    padding: 50px;
+}
+.left{
+    width: 100%;
+    margin-right: 5rem;
+}
+.left > h2{
+    padding: 1rem 0 1rem 0;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;;
+}
+.graphics{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .mine{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 25%;
+    gap: 20px;
+    text-align: center;
+    margin: 3rem;
+  }
+  .text-center{
+    text-align: center;
+  }
+  .text-center .graphics{
+    text-align: center;
+  }
+  

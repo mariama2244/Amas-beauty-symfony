@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hair Clips{% endblock %}
+
+{% block body %}
+
+<h1 class="text-center my-4 p-5">Hair Clips</h1>
+
+	<div class="row mx-auto mb-5">
+
+
+        {% for product in products | reverse %}
+
+            <div class="col-3 text-center mb-5">
+
+                <div class="card mx-auto" style="width: 18rem; height: 30rem;">
+
+                    <img src="{{ asset('uploads/' ~ product.photo)}}" class="card-img-top img-custom" alt="{{ product.title }}">
+
+                    <div class="card-body">
+                            <h5 class="card-title">{{ product.title }}</h5>
+                            <p class="card-text">{{ product.descript }}</p>
+                    </div>
+
+                    <div class="card-footer">
+                            <a href="{{ path('add_item', {'id': product.id}) }}{" class="btn btn-primary">Add to basket</a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+{% endblock %}

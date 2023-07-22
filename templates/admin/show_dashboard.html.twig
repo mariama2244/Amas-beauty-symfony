@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin - Dashboard | Ama's Beauty{% endblock %}
+
+{% block body %}
+
+<h1 class="text-center my-4 p-5">Dashboard</h1>
+
+	<div class="row">
+		<div class="col-11 mx-auto my-4">
+
+			<ul class="nav nav-tabs" id="myTab" role="tablist">
+				<li class="nav-item" role="presentation">
+					<button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Produits</button>
+				</li>
+			
+				<li class="nav-item ms-auto" role="presentation">
+					<a class="btn btn-primary" href="{{ path('create_product' )}}">
+						<i class="bi bi-plus-circle"></i>Ajouter de produits</a>
+				</li>
+			</ul>
+			<div
+				class="tab-content" id="myTabContent">
+				{#////////////////////////////// TABLE PRODUITS  ////////////////////////////////////////////////////#}
+				<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">Proudits</div>
+				{#////////////////////////////// TABLE PRODUITS  ////////////////////////////////////////////////////#}
+
+				<table class="table">
+					<thead>
+						<tr class="text-center">
+
+							<th>#</th>
+							<th>Titre</th>
+							<th>Description</th>
+							<th>Collection</th>
+							<th>Photo</th>
+							<th>Prix</th>
+							<th>Stock</th>
+							<th>Crée le</th>
+							<th>Modifié le</th>
+							<th>Action</th>
+
+						</tr>
+					</thead>
+					<tbody>
+						{% for product in products %}
+
+							<tr class="text-center align-middle">
+								<td>{{ product.id }}</td>
+								<td>{{ product.title | capitalize }}</td>
+								<td>{{ product.descript | length > 25 ? product.descript | slice(0, 25) ~ '...' : product.descript }}</td>
+								<td>{{ product.collection | capitalize }}</td>
+								<td><img src="{{ asset('uploads/' ~ product.photo ) }}" alt="{{ product.title}}" width="150" height="150" class="img-custom"></td>
+								<td>{{ product.price }} €</td>
+								<td>{{ product.stock }}</td>
+								<td>{{ product.createdAt | date('d/m/Y') }}</td>
+								<td>{{ product.updatedAt  | date('d/m/Y')  }}</td>
+								<td>
+									<a href="{{ path('update_product', {'id': product.id}) }}" class="btn btn-info" title="Modifier le produit"><i class="bi bi-pencil-square"></i></a>
+									<a href="{{ path('soft_delete_product', {'id': product.id}) }}" class="btn btn-info" title="Archiver le produit" onclick="return confirm('Cette action archivera le produit. Voulez-vous continuer ?')"><i class="bi bi-trash3"></i></a>
+								</td>
+							</tr>
+
+						{% endfor %} 
+					</tbody>
+				</table>
+
+			
+
+		</div>
+	</div>
+
+{% endblock %}

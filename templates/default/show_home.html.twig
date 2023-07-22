@@ -1,0 +1,197 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil | Ama's Beauty{% endblock %}
+
+{% block body %}
+
+ 
+ <section class="hero">
+        <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="4000">
+            <!-- Indicateurs du carousel -->
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExample" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExample" data-slide-to="1"></li>
+                <li data-target="#carouselExample" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Slides du carousel -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{{ asset('uploads/' ~ slider1.photo) }}" alt="Image 1" class="img-fluid">
+                    <div class="carousel-caption">
+                        <h1>Wigs</h1>
+                       
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ asset('uploads/' ~ slider2.photo) }}" alt="Image 2" class="img-fluid">
+                    <div class="carousel-caption">
+                        <h1>Eyelashes</h1>
+                       
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="{{ asset('uploads/' ~ slider3.photo) }}" alt="Image 3" class="img-fluid">
+                    <div class="carousel-caption">
+                        <h1>Bonnets</h1>
+                       
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contrôles du carousel -->
+            <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only"></span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only"></span>
+            </a>
+        </div>
+    </section>
+    
+       
+    
+        <div class="container2">
+            {# <div class="title text-center">
+                <h2 class="text-uppercase my-5 p-2">UNIQUE and CUTICULAR</h2>
+            </div> #}
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4 align-items-center d-flex ">
+                        <img class="img-fluid rounded-start align-self-center img-hover" src="{{ asset('uploads/bg4.6489893e0ebdc.png')}}">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h3 class="card-titlt p-2">OUR INVISIBLE CLIPS</h3>
+                            <p class="card-text">The Slavic Hair Company exclusively offers genuine cuticle-intact hair
+                                extensions.</p>
+                            <p>The outermost layer of hair ‒ the cuticle ‒ consists of thin, overlapping cells
+                                resembling fish scales and protects the hair from negative environmental effects.
+                                Cuticle-intact hair resembles a pine cone. If the cuticle scales cover one another
+                                tightly, the hair is healthy, shiny and soft. If the cuticle is damaged, the hair loses
+                                its natural shine, becomes fragile and tangles easily.
+                            </p>
+                            <p> Unfortunately, most hair factories use non-cuticle (non-Remy) hair in their production
+                                process. After brushing their hair, Asian women often collect any tangled hair that has
+                                remained on the brush and sell it to wandering hair traders. The hair is then processed
+                                like raw wool: because it is tangled.</p>
+                      
+
+                            <a href="{{ path('show_hairclips') }}"><button class="btn btn-primary">Click here</button></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    <section class="text-center m-5 p-5">
+            <h2>EXCLUSIVELY CUTICULAR</h2>
+
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <div class="card h-100">
+      <img src="{{ asset('uploads/wig-ama1.6488af2c9782d.webp')}}" class="card-img-top img-hover" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Ama's Beauty Brown body</h5>
+        <p class="card-text">Our 12A grade virgin 100% virgin human hair, Pre Plucked & Clean Hairline, Natural Look & Luxurious Texture.</p>
+      </div>
+     <a href="{{ path('show_wig') }}"><button type="button" class="btn btn-primary btn-sm mb-2">Click here</button></a>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="{{ asset('uploads/pic1.648a489e2985a.png') }}" class="card-img-top img-hover" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Ama's beauty straight hair</h5>
+        <p class="card-text">Our 12A grade virgin 100% virgin human hair, Pre Plucked & Clean Hairline, Natural Look & Luxurious Texture.</</p>
+      </div>
+       <a href="{{ path('show_wig') }}"><button type="button" class="btn btn-primary btn-sm mb-2">Click here</button></a>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="{{ asset('uploads/blonde.png') }}" class="card-img-top img-hover" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Amas Beauty Curly hair</h5>
+        <p class="card-text">Our 12A grade virgin 100% virgin human hair, Pre Plucked & Clean Hairline, Natural Look & Luxurious Texture.</</p>
+      </div>
+    <a href="{{ path('show_wig') }}"><button type="button" class="btn btn-primary btn-sm mb-2">Click here</button></a>
+    </div>
+  </div>
+</div>    
+ </section>
+
+
+ <section class="text-center m-5 p-5">
+   <h2>Extension Collection</h2>
+  <div class="col-md-4 align-items-center d-flex ">  >
+      <img src="{{ asset('uploads/1.png') }}" class="rounded float-start w-100 img-hover" alt="...">
+      <img src="{{ asset('uploads/3.png') }}" class="rounded float-end w-100 img-hover" alt="...">
+      <img src="{{ asset('uploads/2.png') }}" class="rounded float-end w-100 img-hover" alt="...">
+  </div>
+
+ </section>
+
+
+
+ 
+        <div class="container2">
+            {# <div class="title text-center">
+                <h2 class="text-uppercase my-5 p-2">UNIQUE and CUTICULAR</h2>
+            </div> #}
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h3 class="card-titlt p-2">Lip Gloss Collection</h3>
+                            <p class="card-text">Ama's Beauty Naughty Nudes Lip Gloss is a stunning, non-sticky gloss that takes your pout to the max! This dreamy lipgloss gives you the look of lush, fuller lips instantly.</p>
+                            <p> Naughty Nudes Lip Gloss gives you a stunning sparkling and filling effect. Amplify your pout and get that sought-after Maura shine with these high shine glosses. These lip glosses have a protective and regenerative formula that's never sticky. Rich moisturising agents create a protective moisture barrier while continuously hydrating the lips while sparkling pigments work to fill and optically enlarge the appearance of your lips. Vitamin E which has an anti-ageing, protective effect and Apricot Kernel Oil which softens, smooths and moisturises. Available in 8 stunningly divine, colour rich and luminous shades - finish your lip look with a dazzling glossy glow!
+                            </p>
+                            <p>I’ve handpicked some of my favourite products from Ams's beauty for this collection – some of the classics that I’ve used over the years which I absolutely love still to this day. I’ve also created some amazing new products with Ama's – they are incredible, and I know you’re all going to love them!” - Beauty</p>
+                            <p></p>
+
+                            <a href="{{ path('show_lipgloss') }} "><button class="btn btn-primary">click here</button></a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 align-items-center d-flex ">
+                        <img class="img-fluid rounded-start align-self-center img-hover" src="{{ asset('uploads/lip-bg.png')}}">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+ 
+ <div class="flex-fill bd-highlight p-3 ">
+            <video width="600" height="400" controls>
+                <source src="{{ asset('video/Straight wig 2.mp4') }}" type="video/mp4">
+            </video>
+              <video width="600" height="400" controls>
+                <source src="{{ asset('video/straight Wig.mp4') }}" type="video/mp4">
+            </video>
+            
+ </div>
+
+  <div class="flex-fill bd-highlight p-3 ">
+            <video width="600" height="400" controls>
+                <source src="{{ asset('video/WhatsApp Vidéo 2023-01-17 à 14.19.24.mp4') }}" type="video/mp4">
+            </video>
+              <video width="600" height="400" controls>
+                <source src="{{ asset('video/WhatsApp Vidéo 2023-01-17 à 14.19.25.mp4') }}" type="video/mp4">
+            </video>
+            
+ </div>
+
+
+
+
+{% endblock %}

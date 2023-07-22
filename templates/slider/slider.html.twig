@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin-Slider | Protel{% endblock %}
+
+{% block body %}
+
+    <h1 class="text-center my-4 p-5">Slider Table</h1>
+    </div>
+        {# ################# FLASHES ################# #}
+
+    <div class="row">
+
+        <div class="row">
+            <div class="col-11 text-end">
+                <a class=" btn btn-sm btn-outline-secondary" href="{{ path('show_archiver')}}">See your archives</a>
+            </div>
+        </div>
+
+        <div class="col-10 mx-auto my-4">
+            <table class="table">
+                <thead>
+                    <tr class="text-center text-dark align-middle">
+                        <th>#</th>
+                        <th>Photo</th>
+                        <th>Ordre</th>
+                        <th>Date d'enregistrement</th>
+                        <th>Acions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for slider in sliders %}
+                        <tr class="text-center">
+                            <th class="text-center text-dark align-middle">{{ slider.id }}</th>
+                            <td class="text-center text-dark align-middle"><img width="150" length="150" class="img-fluid" src="{{ asset('uploads/' ~ slider.photo)}}" alt="slider1"></td>
+                            <td class="text-center text-dark align-middle">{{ slider.ordre }}</td>
+                            <td class="text-center text-dark align-middle">{{ slider.createdAt | date('d/m/Y') }}</td>
+                            <td class="text-center text-dark align-middle">
+                                <a href="#" class="text-info align-middle text-center" title="Aperçu"><i class="bi bi-search mx-1"></i></a>
+                                <a href="{{ path('update_slider', {'id': slider.id}) }}" class="text-info align-middle text-center" title="Modifier"><i class="bi bi-pencil-square mx-1"></i></a>
+                                <a href="{{ path('hard_delete_slider', {'id': slider.id}) }}" class="text-danger align-middle text-center" title="Supprimer"><i class="bi bi-trash3 mx-1"></i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        
+        </div>
+
+        {% if slider is defined %}
+        <h1 class="text-center my-4">Modifier slider</h1>
+        {% else %}
+        <h1 class="text-center my-4">Add slider</h1>
+        {% endif %}
+
+        <div class="row">
+            <div class="row col-10 mx-auto my-4">
+
+                {{ form_start(form_slider) }}
+
+                {{ form_end(form_slider) }}
+
+            </div>
+        </div>
+        
+
+    </div>
+
+{% endblock %}

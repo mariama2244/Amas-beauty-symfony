@@ -1,0 +1,109 @@
+<nav class="navbar navbar-expand-lg bg-pink py-0 navbar-fixed-top">
+	<div class="container-fluid">
+		<a class="navbar-brand text-dark" href="{{ path('show_home') }}"><img src="{{asset('/uploads/Logo.png')}}" alt="logo-cs-net" width="100" height="100"></a>
+		<button class="navbar-toggler bg-dark" style="color: black" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+					<a class="nav-link active text-dark" aria-current="page" href="{{ path('show_home') }}">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active text-dark" aria-current="page" href="{{ path('show_aboutus') }}">About Us</a>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link text-dark" href="{{ path('register') }}">Registration</a>
+				</li>
+
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Products
+					</a>
+					<ul class="dropdown-menu">
+						<button type="button" class="btn-close" aria-label="Close"></button>
+						<li>
+							<a class="dropdown-item" href="{{ path('show_wig') }}">Wigs</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="{{ path('show_eyelash')}}">Eyelashes</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="{{ path('show_bonnet') }}">Bonnets</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="{{ path('show_hairbundle') }}">Hair Bundles</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="{{ path('show_hairclips') }}">Hair Clips</a>
+						</li>
+
+						<li>
+							<a class="dropdown-item" href="{{ path('show_lipgloss') }}">Lip Gloss</a>
+						</li>
+						
+					
+					</ul>
+				</li>
+
+				{% if not app.user %}
+					  <li class="nav-item">
+						<a class="nav-link text-dark" href="{{ path('app_login') }}">Login</a>
+					  </li>
+
+
+				{% else %}
+					  <li class="nav-item">
+						<a class="nav-link text-dark" href="{{ path('app_logout') }}">Logout</a>
+					  </li>
+
+				
+				<li class="nav-item">
+					<a class="nav-link active text-dark" href="{{ path('contact') }}">Contact</a>
+				</li>
+
+			    {% endif %}
+
+			     {# pour verfier le role d'un User, vous DEVEZ utiliser la fonction Twig is_granted() #}
+			    {% if is_granted('ROLE_ADMIN') %}
+				<li class="nav-item dropdown">
+
+					<a class="nav-link dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						 Admin
+					</a>
+					<ul class="dropdown-menu">
+
+						<li>
+							<a class="dropdown-item" href="{{ path('show_dashboard') }}">Dashboard</a>
+						</li>
+
+						<li><hr class="dropdown-divider"></li>
+
+						<li>
+							<a class="dropdown-item" href="{{ path('create_slider') }}">Slider</a>
+						</li>
+
+					
+						<li>
+							<a class="dropdown-item" href="{{ path('show_archiver')}}">See Archive</a>
+						</li>
+
+					</ul>
+				</li>
+			  {% endif %}
+		  </ul>
+
+		   
+		      <div class="m-5 panier">
+			       <a href="{{ path('show_panier')}}" class="btn-sm">Basket
+				        <i class="bi bi-cart3"></i>
+			       </a>
+		      </div>
+	   </div>
+ </div>
+
+</nav>
+
+
+
